@@ -1,0 +1,5 @@
+<InputLocale>041b:0000041b</InputLocale>
+<SystemLocale>sk-SK</SystemLocale>
+<UILanguage>en-US</UILanguage>
+<UserLocale>sk-SK</UserLocale>
+</component>

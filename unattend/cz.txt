@@ -1,0 +1,4 @@
+<InputLocale>0405:00000405</InputLocale>
+<SystemLocale>cs-CZ</SystemLocale>
+<UILanguage>en-US</UILanguage>
+<UserLocale>cs-CZ</UserLocale>
