@@ -51,15 +51,15 @@ echo format fs=fat32 label=EFI quick >> script.txt
 echo assign letter=Z >> script.txt
 echo create partition primary >> script.txt
 echo format fs=ntfs label=WINDOWS quick >> script.txt
-echo assign letter=C >> script.txt
+echo assign letter=W >> script.txt
 diskpart /s script.txt
 
 REM Install Windows to selected drive:
-dism /Apply-Image /ImageFile:%_INSTALL_MEDIA_%\sources\install.%_TYPE_FILE_% /index:%_INSTALL_EDITION_% /ApplyDir:C:
+dism /Apply-Image /ImageFile:%_INSTALL_MEDIA_%\sources\install.%_TYPE_FILE_% /index:%_INSTALL_EDITION_% /ApplyDir:W:
 
 REM Setup UEFI Boot:
 echo.
-C:\Windows\System32\bcdboot C:\Windows /s Z: /f UEFI
+W:\Windows\System32\bcdboot W:\Windows /s Z: /f UEFI
 
 REM Unattend.xml:
 If %_SYS_LANG_% == [] (
@@ -79,9 +79,9 @@ If %_SYS_LANG_% == [] (
 	)
 )
 
-mkdir C:\Windows\Panther
-copy unattend.xml C:\Windows\Panther
+mkdir W:\Windows\Panther
+copy unattend.xml W:\Windows\Panther
 
 REM Finish:
-C:\Windows\System32\shutdown.exe /r /t 0
+W:\Windows\System32\shutdown.exe /r /t 0
  
