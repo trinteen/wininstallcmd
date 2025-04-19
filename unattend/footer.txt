@@ -11,15 +11,6 @@
 							<PlainText>true</PlainText>
 						</Password>
 					</LocalAccount>
-					<LocalAccount wcm:action="add">
-						<Name>User</Name>
-						<DisplayName></DisplayName>
-						<Group>Users</Group>
-						<Password>
-							<Value></Value>
-							<PlainText>true</PlainText>
-						</Password>
-					</LocalAccount>
 				</LocalAccounts>
 			</UserAccounts>
 			<AutoLogon>
