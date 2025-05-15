@@ -30,6 +30,10 @@
           <Order>2</Order>
           <CommandLine>net accounts /maxpwage:unlimited</CommandLine>
         </SynchronousCommand>
+        <SynchronousCommand wcm:action="add">
+          <Order>3</Order>
+          <CommandLine>manage-bde c: -off</CommandLine>
+        </SynchronousCommand>
       </FirstLogonCommands>
     </component>
   </settings>
