@@ -595,6 +595,20 @@ $complete += $increment;
 <File path="C:\Windows\Setup\Scripts\UserOnce.ps1">
 $scripts = @(
 {
+$params = @{
+Path = 'Registry::HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32';
+ErrorAction = 'SilentlyContinue';
+Force = $true;
+};
+New-Item @params;
+Set-ItemProperty @params -Name '(Default)' -Value '' -Type 'String';
+};
+{
+Get-Process -Name 'explorer' -ErrorAction 'SilentlyContinue' | Where-Object -FilterScript {
+$_.SessionId -eq ( Get-Process -Id $PID ).SessionId;
+} | Stop-Process -Force;
+};
+{
 Get-AppxPackage -Name 'Microsoft.Windows.Ai.Copilot.Provider' | Remove-AppxPackage;
 };
 {
