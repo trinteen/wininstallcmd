@@ -1,0 +1,43 @@
+</component>
+<component name="Microsoft-Windows-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
+	<UserData>
+		<ProductKey>
+			<Key></Key>
+			<WillShowUI>OnError</WillShowUI>
+		</ProductKey>
+		<AcceptEula>true</AcceptEula>
+	</UserData>
+	<UseConfigurationSet>false</UseConfigurationSet>
+</component>
+</settings>
+<settings pass="generalize"></settings>
+<settings pass="specialize">
+<component name="Microsoft-Windows-Deployment" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
+	<RunSynchronous>
+		<RunSynchronousCommand wcm:action="add">
+			<Order>1</Order>
+			<Path>powershell.exe -WindowStyle Normal -NoProfile -Command "$xml = [xml]::new(); $xml.Load('C:\Windows\Panther\unattend.xml'); $sb = [scriptblock]::Create( $xml.unattend.Extensions.ExtractScript ); Invoke-Command -ScriptBlock $sb -ArgumentList $xml;"</Path>
+		</RunSynchronousCommand>
+		<RunSynchronousCommand wcm:action="add">
+			<Order>2</Order>
+			<Path>powershell.exe -WindowStyle Normal -NoProfile -Command "Get-Content -LiteralPath 'C:\Windows\Setup\Scripts\Specialize.ps1' -Raw | Invoke-Expression;"</Path>
+		</RunSynchronousCommand>
+		<RunSynchronousCommand wcm:action="add">
+			<Order>3</Order>
+			<Path>reg.exe load "HKU\DefaultUser" "C:\Users\Default\NTUSER.DAT"</Path>
+		</RunSynchronousCommand>
+		<RunSynchronousCommand wcm:action="add">
+			<Order>4</Order>
+			<Path>powershell.exe -WindowStyle Normal -NoProfile -Command "Get-Content -LiteralPath 'C:\Windows\Setup\Scripts\DefaultUser.ps1' -Raw | Invoke-Expression;"</Path>
+		</RunSynchronousCommand>
+		<RunSynchronousCommand wcm:action="add">
+			<Order>5</Order>
+			<Path>reg.exe unload "HKU\DefaultUser"</Path>
+		</RunSynchronousCommand>
+	</RunSynchronous>
+</component>
+</settings>
+<settings pass="auditSystem"></settings>
+<settings pass="auditUser"></settings>
+<settings pass="oobeSystem">
+<component name="Microsoft-Windows-International-Core" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">

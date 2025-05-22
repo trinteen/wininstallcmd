@@ -63,19 +63,19 @@ W:\Windows\System32\bcdboot W:\Windows /s Z: /f UEFI
 
 REM Unattend.xml:
 If %_SYS_LANG_% == [] (
-	type unattend\header.txt unattend\footer.txt > unattend.xml
+	type unattend\part1.txt unattend\part2.txt unattend\part3.txt > unattend.xml
 ) else (
 	if %_SYS_LANG_% == 1 (
-		type unattend\header.txt unattend\en.txt unattend\footer.txt > unattend.xml
+		type unattend\part1.txt unattend\en.txt unattend\part2.txt unattend\en.txt unattend\part3.txt > unattend.xml
 	)
 	if %_SYS_LANG_% == 2 (
-		type unattend\header.txt unattend\cz.txt unattend\footer.txt > unattend.xml
+		type unattend\part1.txt unattend\cz.txt unattend\part2.txt unattend\cz.txt unattend\part3.txt > unattend.xml
 	)
 	if %_SYS_LANG_% == 3 (
-		type unattend\header.txt unattend\sk.txt unattend\footer.txt > unattend.xml
+		type unattend\part1.txt unattend\sk.txt unattend\part2.txt unattend\sk.txt unattend\part3.txt > unattend.xml
 	)
 	if %_SYS_LANG_% == X (
-		type unattend\header.txt unattend\footer.txt > unattend.xml
+		type unattend\part1.txt unattend\part2.txt unattend\part3.txt > unattend.xml
 	)
 )
 
