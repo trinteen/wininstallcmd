@@ -39,7 +39,7 @@
 </SynchronousCommand>
 <SynchronousCommand wcm:action="add">
 <Order>3</Order>
-<CommandLine>manage-bde c: -off</CommandLine>
+<CommandLine>manage-bde -off C:</CommandLine>
 </SynchronousCommand>
 <SynchronousCommand wcm:action="add">
 <Order>4</Order>
