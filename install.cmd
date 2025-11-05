@@ -12,7 +12,7 @@ set /p _INSTALL_MEDIA_=select drive (e.g. D:):
 REM Type install file (WIM/ESD):
 if exist "%_INSTALL_MEDIA_%\sources\install.esd" (
 	set _TYPE_FILE_=esd
-) else if exist "%_INSTALL_MEDIA_%\sources\install.win" (
+) else if exist "%_INSTALL_MEDIA_%\sources\install.wim" (
 	set _TYPE_FILE_=wim
 ) else (
 	echo "[ERROR] %_INSTALL_MEDIA_%\sources\install.esd/wim not found."
