@@ -9,15 +9,13 @@ wmic logicaldisk get name,volumename
 echo ===============================
 set /p _INSTALL_MEDIA_=select drive (e.g. D:): 
 
-REM Type install file (WIM/ESD/SWM):
+REM Type install file (WIM/ESD):
 if exist "%_INSTALL_MEDIA_%\sources\install.esd" (
 	set _TYPE_FILE_=esd
 ) else if exist "%_INSTALL_MEDIA_%\sources\install.wim" (
 	set _TYPE_FILE_=wim
-) else if exist "%_INSTALL_MEDIA_%\sources\install.swm" (
-	set _TYPE_FILE_=swm
 ) else (
-	echo "[ERROR] %_INSTALL_MEDIA_%\sources\install.esd/wim/swm not found."
+	echo "[ERROR] %_INSTALL_MEDIA_%\sources\install.esd/wim not found."
     goto :EOF
 )
 
@@ -75,11 +73,7 @@ if errorlevel 1 (
 )
 
 REM Install Windows to selected drive:
-if /I "%_TYPE_FILE_%"=="swm" (
-	dism /apply-image /imagefile:%_INSTALL_MEDIA_%\sources\install.%_TYPE_FILE_% /swmfile:%_INSTALL_MEDIA_%\sources\install*.%_TYPE_FILE_%  /index:%_INSTALL_EDITION_% /ApplyDir:W:
-) else (
-	dism /Apply-Image /ImageFile:%_INSTALL_MEDIA_%\sources\install.%_TYPE_FILE_% /index:%_INSTALL_EDITION_% /ApplyDir:W:
-)
+dism /Apply-Image /ImageFile:%_INSTALL_MEDIA_%\sources\install.%_TYPE_FILE_% /index:%_INSTALL_EDITION_% /ApplyDir:W:
 if errorlevel 1 (
 	echo "[ERROR] Image apply failed."
     goto :EOF
