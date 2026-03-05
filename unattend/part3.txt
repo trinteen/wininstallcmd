@@ -212,7 +212,6 @@ $result | ConvertTo-Json -Depth 3 -Compress;
 </File>
 <File path="C:\Windows\Setup\Scripts\RemoveFeatures.ps1">
 $selectors = @(
-'MediaPlayback';
 'MicrosoftWindowsPowerShellV2Root';
 'Microsoft-RemoteDesktopConnection';
 'Recall';
