@@ -745,6 +745,7 @@ $complete += $increment;
 <File path="C:\Windows\Setup\Scripts\BitlockerOff.ps1">
 $disks = (Get-PSDrive -PSProvider FileSystem).Name | ForEach-Object { "{0}:" -f $_ }
 foreach ($d in $disks) {
+Write-Output "Disk: $d" &gt;&gt; "C:\Windows\Setup\Scripts\BitlockerOff.log"
 manage-bde -off $d &gt;&gt; "C:\Windows\Setup\Scripts\BitlockerOff.log"
 }
 </File>
