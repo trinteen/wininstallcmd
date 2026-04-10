@@ -45,6 +45,10 @@
 <Order>4</Order>
 <CommandLine>powershell.exe -WindowStyle Normal -NoProfile -Command "Get-Content -LiteralPath 'C:\Windows\Setup\Scripts\FirstLogon.ps1' -Raw | Invoke-Expression;"</CommandLine>
 </SynchronousCommand>
+<SynchronousCommand wcm:action="add">
+<Order>5</Order>
+<CommandLine>powershell.exe -ExecutionPolicy Bypass -File C:\Windows\Setup\Scripts\BitlockerOff.ps1</CommandLine>
+</SynchronousCommand>
 </FirstLogonCommands>
 </component>
 </settings>
@@ -741,9 +745,8 @@ $complete += $increment;
 <File path="C:\Windows\Setup\Scripts\BitlockerOff.ps1">
 $disks = (Get-PSDrive -PSProvider FileSystem).Name | ForEach-Object { "{0}:" -f $_ }
 foreach ($d in $disks) {
-Write-Output "Disk: $d"
-manage-bde -off $d
-} *&gt;&amp;1 &gt;&gt; "C:\Windows\Setup\Scripts\BitlockerOff.log";
+manage-bde -off $d &gt;&gt; "C:\Windows\Setup\Scripts\BitlockerOff.log"
+}
 </File>
 <File path="C:\Windows\Setup\Scripts\FirstLogon.ps1">
 $scripts = @(
