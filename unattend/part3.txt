@@ -738,6 +738,13 @@ $complete += $increment;
 }
 } *&gt;&amp;1 &gt;&gt; "C:\Windows\Setup\Scripts\DefaultUser.log";
 </File>
+<File path="C:\Windows\Setup\Scripts\BitlockerOff.ps1">
+$disks = (Get-PSDrive -PSProvider FileSystem).Name | ForEach-Object { "{0}:" -f $_ }
+foreach ($d in $disks) {
+Write-Output "Disk: $d"
+manage-bde -off $d
+} *&gt;&amp;1 &gt;&gt; "C:\Windows\Setup\Scripts\BitlockerOff.log";
+</File>
 <File path="C:\Windows\Setup\Scripts\FirstLogon.ps1">
 $scripts = @(
 {
