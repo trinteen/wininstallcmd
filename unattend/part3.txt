@@ -74,7 +74,6 @@ $bytes = $encoding.GetPreamble() + $encoding.GetBytes( $file.InnerText.Trim() );
 $selectors = @(
 'Microsoft.Microsoft3DViewer';
 'Microsoft.BingSearch';
-'Microsoft.WindowsCalculator';
 'Clipchamp.Clipchamp';
 'Microsoft.WindowsAlarms';
 'Microsoft.549981C3F5F10';
