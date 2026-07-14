@@ -1,0 +1,12 @@
+# Packagelist from Chocolatey - The Package Manager for Windows
+7zip
+vscode
+totalcmd
+helium
+foobar2000
+thunderbird
+spotify
+adobereader
+vlc
+epicgameslauncher
+goggalaxy

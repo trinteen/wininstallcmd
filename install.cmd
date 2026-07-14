@@ -96,17 +96,38 @@ if errorlevel 1 (
 REM Unattend.xml:
 if "%_SYS_LANG_%"=="" set _SYS_LANG_=X
 if /I "%_SYS_LANG_%" == "1" (
-	type unattend\part1.txt unattend\en.txt unattend\part2.txt unattend\en.txt unattend\part3.txt > unattend.xml
+	type assets\part1.txt assets\en.txt assets\part2.txt assets\en.txt assets\part3.txt > unattend.xml
 ) else if /I "%_SYS_LANG_%" == "2" (
-	type unattend\part1.txt unattend\cz.txt unattend\part2.txt unattend\cz.txt unattend\part3.txt > unattend.xml
+	type assets\part1.txt assets\cz.txt assets\part2.txt assets\cz.txt assets\part3.txt > unattend.xml
 ) else if /I "%_SYS_LANG_%" == "3" (
-	type unattend\part1.txt unattend\sk.txt unattend\part2.txt unattend\sk.txt unattend\part3.txt > unattend.xml
+	type assets\part1.txt assets\sk.txt assets\part2.txt assets\sk.txt assets\part3.txt > unattend.xml
 ) else (
-	type unattend\part1.txt unattend\part2.txt unattend\part3.txt > unattend.xml
+	type assets\part1.txt assets\part2.txt assets\part3.txt > unattend.xml
 )
 
-mkdir W:\Windows\Panther 2>nul
-copy /y unattend.xml W:\Windows\Panther >nul
+mkdir W:\Windows\Panther
+copy /y unattend.xml W:\Windows\Panther
+
+REM OEM
+mkdir W:\Windows\OEM
+copy /y assets\logo.bmp W:\Windows\OEM
+
+REM Wallpaper
+rmdir /s /q W:\Windows\Web\
+mkdir W:\Windows\Web\Wallpaper\unattend
+copy /y assets\wallpaper.jpg W:\Windows\Web\Wallpaper\unattend\
+
+REM Apps:
+mkdir W:\Windows\Setup\Scripts\
+copy /y Apps.txt W:\Windows\Setup\Scripts\InstallApps.txt
+
+REM Screensaver:
+for %%i in (W:\*) do (
+	if /I not "%%~nxi"=="scrsave.scr" del /f /q "%%i"
+)
+
+REM Help:
+rmdir /s /q W:\Windows\Help
 
 REM Finish:
 W:\Windows\System32\shutdown.exe /r /t 0
