@@ -125,7 +125,10 @@
         	<Order>27</Order>
         	<Path>reg add "HKCU\System\GameConfigStore" /v GameDVR_FSEBehaviorMode /t REG_DWORD /d 2 /f</Path>
     	</RunSynchronousCommand>
-		
+		<RunSynchronousCommand wcm:action="add">
+        	<Order>28</Order>
+        	<Path>reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /v ExcludeWUDriversInQualityUpdate /t REG_DWORD /d 1 /f</Path>
+    	</RunSynchronousCommand>
 	</RunSynchronous>
 </component>
 </settings>

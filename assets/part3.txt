@@ -31,30 +31,26 @@
 <FirstLogonCommands>
 <SynchronousCommand wcm:action="add">
 <Order>1</Order>
-<CommandLine>reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\DriverSearching" /v SearchOrderConfig /t REG_DWORD /d 0 /f</CommandLine>
-</SynchronousCommand>
-<SynchronousCommand wcm:action="add">
-<Order>2</Order>
 <CommandLine>net user &quot;Admin&quot; /logonpasswordchg:yes</CommandLine>
 </SynchronousCommand>
 <SynchronousCommand wcm:action="add">
-<Order>3</Order>
+<Order>2</Order>
 <CommandLine>net accounts /maxpwage:unlimited</CommandLine>
 </SynchronousCommand>
 <SynchronousCommand wcm:action="add">
-<Order>4</Order>
+<Order>3</Order>
 <CommandLine>manage-bde -off C:</CommandLine>
 </SynchronousCommand>
 <SynchronousCommand wcm:action="add">
-<Order>5</Order>
+<Order>4</Order>
 <CommandLine>powershell.exe -WindowStyle Normal -NoProfile -Command "Get-Content -LiteralPath 'C:\Windows\Setup\Scripts\FirstLogon.ps1' -Raw | Invoke-Expression;"</CommandLine>
 </SynchronousCommand>
 <SynchronousCommand wcm:action="add">
-<Order>6</Order>
+<Order>5</Order>
 <CommandLine>powershell.exe -NoProfile -ExecutionPolicy Bypass -File "C:\Windows\Setup\Scripts\BitlockerOff.ps1"</CommandLine>
 </SynchronousCommand>
 <SynchronousCommand wcm:action="add">
-<Order>7</Order>
+<Order>6</Order>
 <Description>Install Chocolatey Packages</Description>
 <CommandLine>powershell.exe -ExecutionPolicy Bypass -File C:\Windows\Setup\Scripts\InstallApps.ps1</CommandLine>
 </SynchronousCommand>
