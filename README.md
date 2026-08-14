@@ -11,8 +11,10 @@
 
 
 ## Structure
-assets - include unattend configuration scripts, wallpaper and logo
-Apps.txt - define your apps for instalation to new system
+assets - include unattend configuration scripts, logo
+In folder "usermod" include:
+- Apps.txt - define your apps for instalation to new system
+- wallpaper.jpg - custom wallpaper for set as default
 install.cmd - start script
 
 
