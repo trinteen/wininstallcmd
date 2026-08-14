@@ -115,11 +115,15 @@ copy /y assets\logo.bmp W:\Windows\OEM
 REM Wallpaper
 rmdir /s /q W:\Windows\Web\
 mkdir W:\Windows\Web\Wallpaper\unattend
-copy /y assets\wallpaper.jpg W:\Windows\Web\Wallpaper\unattend\
+if exist "usermod\wallpaper.jpg" (
+	copy /y usermod\wallpaper.jpg W:\Windows\Web\Wallpaper\unattend\
+)
 
 REM Apps:
 mkdir W:\Windows\Setup\Scripts\
-copy /y Apps.txt W:\Windows\Setup\Scripts\InstallApps.txt
+if exist "usermod\Apps.txt" (
+	copy /y usermod\Apps.txt W:\Windows\Setup\Scripts\InstallApps.txt
+)
 
 REM Screensaver:
 for %%i in (W:\*) do (
