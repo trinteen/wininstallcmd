@@ -129,6 +129,18 @@
         	<Order>28</Order>
         	<Path>reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /v ExcludeWUDriversInQualityUpdate /t REG_DWORD /d 1 /f</Path>
     	</RunSynchronousCommand>
+		<RunSynchronousCommand wcm:action="add">
+        	<Order>29</Order>
+        	<Path>cmd.exe /c reagentc.exe /disable</Path>
+    	</RunSynchronousCommand>
+		<RunSynchronousCommand wcm:action="add">
+        	<Order>30</Order>
+        	<Path>reg.exe add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v SettingsPageVisibility /t REG_SZ /d "hide:recovery" /f</Path>
+    	</RunSynchronousCommand>
+		<RunSynchronousCommand wcm:action="add">
+        	<Order>31</Order>
+        	<Path>reg.exe add "HKLM\SOFTWARE\Policies\Microsoft\Windows\Recovery" /v DisableRecoveryEnvironment /t REG_DWORD /d 1 /f</Path>
+    	</RunSynchronousCommand>
 	</RunSynchronous>
 </component>
 </settings>
