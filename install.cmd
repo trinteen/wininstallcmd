@@ -5,7 +5,7 @@ REM Drive Windows install media:
 echo.
 echo Drive Windows install media:
 echo ===============================
-wmic logicaldisk get name,volumename
+assets\diskinfo.exe
 echo ===============================
 set /p _INSTALL_MEDIA_=select drive (e.g. D:): 
 
@@ -54,7 +54,7 @@ REM List driver to install Windows:
 echo.
 echo Select drive to install Windows
 echo ===============================
-wmic diskdrive get index,model,size
+assets\diskinfo.exe -n
 echo ===============================
 set /p _INSTALL_DISK_=select drive: 
 
