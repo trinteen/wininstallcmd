@@ -1,6 +1,6 @@
 ## Command-Line Windows instalation with unattend configuration file
 
-1. Crate original Windows instalation media (Flash Disk)
+1. Create original Windows instalation media (Flash Disk)
 2. Unzip this project to Flash disk
 3. Boot Windows Setup from UEFI
 4. Press SHIFT+F10 for Command-Line and start INSTALL.CMD
