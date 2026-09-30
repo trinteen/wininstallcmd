@@ -141,6 +141,39 @@
         	<Order>31</Order>
         	<Path>reg.exe add "HKLM\SOFTWARE\Policies\Microsoft\Windows\Recovery" /v DisableRecoveryEnvironment /t REG_DWORD /d 1 /f</Path>
     	</RunSynchronousCommand>
+
+		<RunSynchronousCommand wcm:action="add">
+        	<Order>32</Order>
+        	<Path>reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v TaskbarBadges /t REG_DWORD /d 0 /f</Path>
+    	</RunSynchronousCommand>
+		<RunSynchronousCommand wcm:action="add">
+        	<Order>33</Order>
+        	<Path>reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Start" /v StartMenuSize /t REG_DWORD /d 1 /f</Path>
+    	</RunSynchronousCommand>
+		<RunSynchronousCommand wcm:action="add">
+        	<Order>34</Order>
+        	<Path>reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v TaskbarSize /t REG_DWORD /d 1 /f</Path>
+    	</RunSynchronousCommand>
+		<RunSynchronousCommand wcm:action="add">
+        	<Order>35</Order>
+        	<Path>reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v HideFileExt /t REG_DWORD /d 0 /f</Path>
+    	</RunSynchronousCommand>
+		<RunSynchronousCommand wcm:action="add">
+        	<Order>36</Order>
+        	<Path>reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Start" /v ShowPinnedSection /t REG_DWORD /d 0 /f</Path>
+    	</RunSynchronousCommand>
+		<RunSynchronousCommand wcm:action="add">
+        	<Order>37</Order>
+        	<Path>reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Start" /v ShowRecentList /t REG_DWORD /d 0 /f</Path>
+    	</RunSynchronousCommand>
+		<RunSynchronousCommand wcm:action="add">
+        	<Order>38</Order>
+        	<Path>reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Start" /v ShowRecentSection /t REG_DWORD /d 0 /f</Path>
+    	</RunSynchronousCommand>
+		<RunSynchronousCommand wcm:action="add">
+        	<Order>99</Order>
+        	<Path>shutdown.exe /r /t 0</Path>
+    	</RunSynchronousCommand>
 	</RunSynchronous>
 </component>
 </settings>
