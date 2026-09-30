@@ -92,14 +92,9 @@
     </SynchronousCommand>
     
     <SynchronousCommand wcm:action="add">
-        <Order>98</Order>
+        <Order>99</Order>
         <Description>Install Chocolatey Packages</Description>
         <CommandLine>powershell.exe -ExecutionPolicy Bypass -File C:\Windows\Setup\Scripts\InstallApps.ps1</CommandLine>
-    </SynchronousCommand>
-    <SynchronousCommand wcm:action="add">
-        <Order>99</Order>
-        <Description></Description>
-        <CommandLine>shutdown.exe /r /t 0</CommandLine>
     </SynchronousCommand>
 </FirstLogonCommands>
 </component>
